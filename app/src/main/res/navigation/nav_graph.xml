@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.motionlayout.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_basicSceneFragment"
+            app:destination="@id/sceneBasicFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_KeyAttributesFragment"
+            app:destination="@id/sceneKeyAttributesFragment" />
+
+        <action
+            android:id="@+id/action_mainFragment_to_CollapsingHeaderFragment"
+            app:destination="@id/sceneCollapsingHeader" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.motionlayout.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.motionlayout.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/sceneBasicFragment"
+        android:name="com.example.motionlayout.BasicSceneFragment"
+        android:label="SceneBasicFragment"
+        tools:layout="@layout/fragment_basic_scene" />
+
+    <fragment
+        android:id="@+id/sceneKeyAttributesFragment"
+        android:name="com.example.motionlayout.KeyAttributesFragment"
+        android:label="KeyAttributesFragment"
+        tools:layout="@layout/fragment_key_attributes" />
+
+    <fragment
+        android:id="@+id/sceneCollapsingHeader"
+        android:name="com.example.motionlayout.CollapsingHeaderFragment"
+        android:label="CollapsingHeaderFragment"
+        tools:layout="@layout/fragment_collapsing_header" />
+</navigation>

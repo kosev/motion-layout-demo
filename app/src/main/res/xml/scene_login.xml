@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Transition
+        app:constraintSetStart="@+id/initialDelay"
+        app:constraintSetEnd="@+id/start"
+        app:duration="500"
+        app:autoTransition="animateToEnd"/>
+
+    <Transition
+        app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/showLogo"
+        app:duration="400"
+        app:autoTransition="animateToEnd"
+        app:motionInterpolator="easeOut"/>
+
+    <Transition
+        app:constraintSetStart="@+id/showLogo"
+        app:constraintSetEnd="@+id/showTriangles"
+        app:duration="300"
+        app:autoTransition="animateToEnd"/>
+
+    <Transition
+        app:constraintSetStart="@+id/showTriangles"
+        app:constraintSetEnd="@+id/showForm"
+        app:duration="300"
+        app:autoTransition="animateToEnd"
+        app:motionInterpolator="easeIn"/>
+
+    <Transition
+        app:constraintSetStart="@+id/showForm"
+        app:constraintSetEnd="@+id/showLoader"
+        app:duration="400"
+        app:motionInterpolator="easeIn">
+        <OnClick app:targetId="@id/login"/>
+    </Transition>
+
+    <Transition
+        app:constraintSetStart="@+id/showLoader"
+        app:constraintSetEnd="@+id/showLoading"
+        app:duration="2500"
+        app:autoTransition="animateToEnd"
+        app:motionInterpolator="easeIn"/>
+
+    <Transition
+        app:constraintSetStart="@+id/showLoading"
+        app:constraintSetEnd="@+id/showEnd"
+        app:duration="300"
+        app:autoTransition="animateToEnd"
+        app:motionInterpolator="easeIn"/>
+
+    <ConstraintSet android:id="@+id/initialDelay"/>
+
+    <ConstraintSet android:id="@+id/start"/>
+
+    <ConstraintSet android:id="@+id/showLogo">
+        <Constraint android:id="@id/logo">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="0.25" />
+            <PropertySet
+                android:alpha="1"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/showTriangles" app:deriveConstraintsFrom="@id/showLogo">
+        <Constraint android:id="@id/triangle1">
+            <Transform android:translationX="-95dp" android:translationY="-65dp" android:rotation="30"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle2">
+            <Transform android:translationX="-80dp" android:translationY="60dp" android:rotation="105"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle3">
+            <Transform android:translationX="90dp" android:translationY="-60dp" android:rotation="30"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle4">
+            <Transform android:translationX="80dp" android:translationY="50dp" android:rotation="60"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/showForm" app:deriveConstraintsFrom="@id/showTriangles">
+        <Constraint android:id="@id/triangle1">
+            <Transform android:translationX="-95dp" android:translationY="-65dp" android:rotation="30"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle2">
+            <Transform android:translationX="-80dp" android:translationY="60dp" android:rotation="105"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle3">
+            <Transform android:translationX="90dp" android:translationY="-60dp" android:rotation="30"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle4">
+            <Transform android:translationX="80dp" android:translationY="50dp" android:rotation="60"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/email">
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/password">
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/login">
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/showLoader" app:deriveConstraintsFrom="@id/showForm">
+        <Constraint android:id="@id/triangle1">
+            <Transform android:translationX="0dp" android:translationY="160dp" android:rotation="0"/>
+            <PropertySet android:alpha="1"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle2">
+            <Transform android:translationX="0dp" android:translationY="160dp" android:rotation="0"/>
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle3">
+            <Transform android:translationX="0dp" android:translationY="160dp" android:rotation="0"/>
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle4">
+            <Transform android:translationX="0dp" android:translationY="160dp" android:rotation="0"/>
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+        <Constraint android:id="@id/email">
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+        <Constraint android:id="@id/password">
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+        <Constraint android:id="@id/login">
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/showLoading" app:deriveConstraintsFrom="@id/showLoader">
+        <Constraint android:id="@id/triangle1">
+            <Transform android:translationX="0dp" android:translationY="160dp" android:rotation="1000"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/showEnd" app:deriveConstraintsFrom="@id/showLoading">
+        <Constraint android:id="@id/logo">
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+        <Constraint android:id="@id/triangle1">
+            <Transform android:translationX="0dp" android:translationY="160dp" android:rotation="1000"/>
+            <PropertySet android:alpha="0"/>
+        </Constraint>
+    </ConstraintSet>
+
+</MotionScene>
